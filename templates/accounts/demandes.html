@@ -1,0 +1,149 @@
+{%  extends 'accounts/main.html' %}
+
+{% block content %}
+
+<br>
+
+<div class="row">
+	<div class="col-md">
+		<div class="card card-body">
+            <h5>Liste des demandes d'achat</h5>
+            <hr>
+			<table class="table table-sm">
+				<tr>
+					<th>Projet</th>
+					<th>Quantité</th>
+					<th>Designation</th>
+					<th>Fabricant</th>
+                    <th>Référence</th>
+                    <th>Fournisseur</th>
+                    <th>Référence</th>
+                    <th>Commentaire</th>
+                    <th>Statut</th>
+
+                </tr>
+                
+                {% for demande in demandes %}
+                <tr>
+                    <td>{{demande.projet}}</td>
+                    <td>{{demande.quantite_piece}}</td>
+                    <td>{{demande.piece}}</td>
+                    <td>{{demande.fabricant}}</td>
+                    <td>{{demande.reference_fabricant}}</td>
+                    <td>{{demande.fournisseur}}</td>
+                    <td>{{demande.reference_fournisseur}}</td>
+                    <td>{{demande.commentaire}}</td>
+                    <td>{{demande.statut}}</td>
+                    <td><a href="{% url 'modifier_demande' demande.id %}"><button class="btn btn-success">Modifier</button></a></td>
+                    <td><a href="{% url 'supprimer_demande' demande.id %}"><button class="btn btn-danger">Supprimer</button></a></td>
+
+                </tr>
+            {% endfor %}
+
+			</table>
+		</div>
+	</div>
+</div>
+
+<br>
+
+<div class="row">
+	<div class="col-md">
+		<div class="card card-body">
+            <h5>Liste des demandes d'achat validées</h5>
+            <hr>
+			<table class="table table-sm">
+				<tr>
+					<th>Projet</th>
+					<th>Quantité</th>
+					<th>Designation</th>
+					<th>Fabricant</th>
+                    <th>Référence</th>
+                    <th>Fournisseur</th>
+                    <th>Référence</th>
+                    <th>Commentaire</th>
+                    <th>Statut</th>
+
+                </tr>
+                
+                {% for demande in demandes_validees %}
+                <tr>
+                    <td>{{demande.projet}}</td>
+                    <td>{{demande.quantite_piece}}</td>
+                    <td>{{demande.piece}}</td>
+                    <td>{{demande.fabricant}}</td>
+                    <td>{{demande.reference_fabricant}}</td>
+                    <td>{{demande.fournisseur}}</td>
+                    <td>{{demande.reference_fournisseur}}</td>
+                    <td>{{demande.commentaire}}</td>
+                    <td>{{demande.statut}}</td>
+                    <td><a href="{% url 'modifier_demande' demande.id %}"><button class="btn btn-success">Modifier</button></a></td>
+                    <td><a href="{% url 'supprimer_demande' demande.id %}"><button class="btn btn-danger">Supprimer</button></a></td>
+
+                </tr>
+            {% endfor %}
+
+			</table>
+		</div>
+	</div>
+</div>
+
+<br>
+
+<div class="row">
+	<div class="col-md">
+		<div class="card card-body">
+            <h5>Liste des demandes d'achat non validées</h5>
+            <hr>
+			<table class="table table-sm">
+				<tr>
+					<th>Projet</th>
+					<th>Quantité</th>
+					<th>Designation</th>
+					<th>Fabricant</th>
+                    <th>Référence</th>
+                    <th>Fournisseur</th>
+                    <th>Référence</th>
+                    <th>Commentaire</th>
+                    <th>Statut</th>
+
+                </tr>
+                
+                {% for demande in non_validees %}
+                <tr>
+                    <td>{{demande.projet}}</td>
+                    <td>{{demande.quantite_piece}}</td>
+                    <td>{{demande.piece}}</td>
+                    <td>{{demande.fabricant}}</td>
+                    <td>{{demande.reference_fabricant}}</td>
+                    <td>{{demande.fournisseur}}</td>
+                    <td>{{demande.reference_fournisseur}}</td>
+                    <td>{{demande.commentaire}}</td>
+                    <td>{{demande.statut}}</td>
+                    <td><a href="{% url 'modifier_demande' demande.id %}"><button class="btn btn-success">Modifier</button></a></td>
+                    <td><a href="{% url 'supprimer_demande' demande.id %}"><button class="btn btn-danger">Supprimer</button></a></td>
+
+                </tr>
+            {% endfor %}
+
+			</table>
+		</div>
+	</div>
+</div>
+
+<br>
+
+<div class="row">
+	<div class="col">
+		<div class="card card-body">
+			<form method="get">
+
+		    <button class="btn btn-primary" type="submit">Search</button>
+		  </form>
+		</div>
+	</div>
+	
+</div>
+
+{% endblock %}
+

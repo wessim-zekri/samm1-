@@ -1,0 +1,67 @@
+{%  extends 'accounts/main.html' %}
+
+{% block content %}
+
+<br>
+
+<div class="row">
+	<div class="col-md">
+		<div class="card card-body">
+            <h5>Liste des commandes</h5>
+            <hr>
+			<table class="table table-sm">
+				<tr>
+					<th>Projet</th>
+					<th>Quantité</th>
+					<th>Designation</th>
+					<th>Fabricant</th>
+                    <th>Référence</th>
+                    <th>Fournisseur demandé</th>
+                    <th>Référence</th>
+                    <th>Commentaire</th>
+                    <th>Fournisseur choisi</th>
+                    <th>Date de la commande</th>
+                    <th>Date de livraison</th>
+                    <th>Statut</th>
+                    <th></th>
+                </tr>
+                
+                {% for commande in commandes %}
+                <tr>
+                    <td>{{commande.demande.projet}}</td>
+                    <td>{{commande.demande.quantite_piece}}</td>
+                    <td>{{commande.demande.piece}}</td>
+                    <td>{{commande.demande.fabricant}}</td>
+                    <td>{{commande.demande.reference_fabricant}}</td>
+                    <td>{{commande.demande.fournisseur}}</td>
+                    <td>{{commande.demande.reference_fournisseur}}</td>
+                    <td>{{commande.demande.commentaire}}</td>
+                    <td>{{commande.fournisseur}}</td>
+                    <td>{{commande.date_commande}}</td>
+                    <td>{{commande.date_livraison}}</td>
+                    <td>{{commande.statut}}</td>
+                    <td><button class="btn btn-success">MAJ Statut</button></td>
+
+                </tr>
+            {% endfor %}
+
+			</table>
+		</div>
+	</div>
+</div>
+
+<br>
+
+<!--<div class="row">
+	<div class="col">
+		<div class="card card-body">
+			<form method="get">
+
+		    <button class="btn btn-primary" type="submit">Search</button>
+		  </form>
+		</div>
+	</div>
+	
+</div>-->
+
+{% endblock %}
